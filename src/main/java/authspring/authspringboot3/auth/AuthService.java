@@ -21,6 +21,7 @@ public class AuthService {
   private final PasswordEncoder passwordEncoder;
   private final AuthenticationManager authenticationManager;
 
+
   public AuthResponse login(LoginRequest request) {
     authenticationManager
         .authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
@@ -37,7 +38,7 @@ public class AuthService {
         .firstname(request.getFirstname())
         .lastname(request.getLastname())
         .country(request.getCountry())
-        .role(Role.USER)
+        .role(request.getRole())
         .build();
     userRepository.save(user);
     return AuthResponse.builder()

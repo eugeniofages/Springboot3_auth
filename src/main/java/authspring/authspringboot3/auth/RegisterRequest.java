@@ -1,4 +1,5 @@
 package authspring.authspringboot3.auth;
+import authspring.authspringboot3.auth.User.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,4 +15,5 @@ public class RegisterRequest {
         String firstname;
         String lastname;
         String country;
+        private Role role;
 }
